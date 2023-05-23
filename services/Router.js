@@ -10,7 +10,8 @@ const Router = {
         // Event handler for URL changes
         window.addEventListener("popstate", (event) => {
             // uses state we setup on history.pushState call in Router.go, false because we don't want to add history when going backwards
-            Router.go(event.state.route, false);
+            console.log("popstate event", event);
+            Router.go(event?.state?.route ?? event.target.location.href, false);
         });
 
         // Check initial URL, use for deeplinking
@@ -36,7 +37,7 @@ const Router = {
                 if (route.startsWith("/product-")) {
                     pageElement = document.createElement("details-page");
                     const paramId = route.substring(route.lastIndexOf("-") + 1);
-                    pageElement.dataset.id = paramId;
+                    pageElement.dataset.productId = paramId;
                 }
         }
 
@@ -49,7 +50,9 @@ const Router = {
             // reset the scroll position on navigation
             window.scrollX = 0;
             window.scrollY = 0;
-        }
+        } /* else {
+            // Can do 404 here
+        } */
     },
 };
 

@@ -9,7 +9,7 @@ const proxiedStore = new Proxy(Store, {
         if (property == "menu") {
             window.dispatchEvent(new Event("appmenuchange"));
         }
-        if (property == "menu") {
+        if (property == "cart") {
             window.dispatchEvent(new Event("appcartchange"));
         }
         return true;
