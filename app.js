@@ -4,6 +4,11 @@ import API from "./services/API.js";
 import { loadData } from "./services/Menu.js";
 import Router from "./services/Router.js";
 
+// Link my Web Components (executes JS)
+import { MenuPage } from "./components/MenuPage.js";
+import { DetailsPage } from "./components/DetailsPage.js";
+import { OrderPage } from "./components/OrderPage.js";
+
 //make global for entire app, break out of module
 window.app = { store: Store, router: Router };
 
